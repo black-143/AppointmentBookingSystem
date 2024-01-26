@@ -1,0 +1,242 @@
+{
+	"info": {
+		"_postman_id": "d49b55a7-ae5f-4af9-b0b9-42aeb07d72fc",
+		"name": "Saloon_appointment_booking",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8081/common/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstname\" : \"pravallika\",\r\n    \"lastname\" : \"y\",\r\n    \"username\" : \"pra@123\",\r\n    \"password\" : \"pra123\",\r\n    \"role\" : \"ROLE_USER\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8081/common/register"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8081/common/authenticate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"pra@1234\",\r\n    \"password\" : \"pra1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8081/authenticate"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8081/common/changepassword?username=pra@123&password=pra@1234",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwcmFAMTIzNCIsImlhdCI6MTcwNjI2NjQxMSwiZXhwIjoxNzA2MjcwMDExfQ.BvkPwI8XWbOnXTZqR7ET_QRHFLlo7fiXMmva5FDekWY"
+					}
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/changepassword?username=pra@123&password=pra@1234",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"changepassword"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "pra@123"
+						},
+						{
+							"key": "password",
+							"value": "pra@1234"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8081/admin/additem",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwcmFAMTIzNCIsImlhdCI6MTcwNjI2NTYxMSwiZXhwIjoxNzA2MjY5MjExfQ.b8J5-_L4-I_zUkMF3CHVzy4-nUBjpC59Ws3xE3m0BSo"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"category\" : \"nail cut3\",\r\n    \"price\" : \"30.0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8081/additem"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8081/admin/updateitem",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwcmFAMTIzNCIsImlhdCI6MTcwNjI2NTYxMSwiZXhwIjoxNzA2MjY5MjExfQ.b8J5-_L4-I_zUkMF3CHVzy4-nUBjpC59Ws3xE3m0BSo"
+					}
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"category\" : \"nail cut3\",\r\n    \"price\" : \"40.0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8081/updateitem"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8081/admin/deleteitem?category=nail cut3",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwcmFAMTIzNCIsImlhdCI6MTcwNjI2NTYxMSwiZXhwIjoxNzA2MjY5MjExfQ.b8J5-_L4-I_zUkMF3CHVzy4-nUBjpC59Ws3xE3m0BSo"
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/admin/deleteitem?category=nail cut3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"admin",
+						"deleteitem"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "nail cut3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8081/user/bookappointment?category=hair cut",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJrYXJ0aGlrQDEyMyIsImlhdCI6MTcwNjI2MzM1MywiZXhwIjoxNzA2MjY2OTUzfQ.LyhBpGdPQy381L4fo1Rb0Yq4e27Lsz-6rQpFFg0yWyU"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"appointmentdate\" : \"2024-03-21\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/user/bookappointment?category=hair cut",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"user",
+						"bookappointment"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "hair cut"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8081/admin/getAppointments?date=2024-01-26",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwcmFAMTIzNCIsImlhdCI6MTcwNjI2NTYxMSwiZXhwIjoxNzA2MjY5MjExfQ.b8J5-_L4-I_zUkMF3CHVzy4-nUBjpC59Ws3xE3m0BSo"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/admin/getAppointments?date=2024-01-26",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"admin",
+						"getAppointments"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2024-01-26"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
